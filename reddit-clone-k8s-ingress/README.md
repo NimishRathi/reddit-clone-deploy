@@ -47,9 +47,9 @@ docker login
 and give your username & password.
 
 # tag the image using command 
-docker  tag <image-name> <dockerhub-username>/<repo-name>:tag  
+docker tag <image-name> <dockerhub-username>/<repo-name>:tag  
 
-# Then use 
+ Then use 
 docker push <DockerHub_Usernam>/<tagged-Imagename>:<actual-image-name> for pushing to the DockerHub.
 You can use an existing docker image i.e  for deployment.
 nimishrathi12/clone-of-redit
