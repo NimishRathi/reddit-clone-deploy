@@ -41,54 +41,90 @@ use this command to build a docker image.
 Step 4) Push the Image To DockerHub
 Now push this Docker Image to DockerHub so our Deployment file can pull this image & run the app in Kubernetes pods.
 
-# First login to your DockerHub account using Command i.e docker login and give your username & password.
+# First login to your DockerHub account using Command i.e
+docker login 
+and give your username & password.
 
 # tag the image using command 
 docker  tag <image-name> <dockerhub-username>/<repo-name>:tag  
 
-# Then use docker push <DockerHub_Usernam>/<tagged-Imagename>:<actual-image-name> for pushing to the DockerHub.
+# Then use 
+docker push <DockerHub_Usernam>/<tagged-Imagename>:<actual-image-name> for pushing to the DockerHub.
 You can use an existing docker image i.e  for deployment.
 nimishrathi12/clone-of-redit
 
 
 ## Step 5) Write a Kubernetes Manifest File
 Write Deployment.yml file
+
 apiVersion: apps/v1
+
 kind: Deployment
+
 metadata:
+
   name: reddit-clone-deployment
+  
   labels:
+  
     app: reddit-clone
+    
 spec:
+
   replicas: 2
+  
   selector:
+  
     matchLabels:
+    
       app: reddit-clone
+      
   template:
+  
     metadata:
+    
       labels:
-        app: reddit-clone
+      
+      app: reddit-clone
+      
     spec:
+    
       containers:
+      
       - name: reddit-clone
+      
         image: nimishrathi12/clone-of-redit
+        
         ports:
+        
         - containerPort: 3000
 
 ##        Write Service.yml file
         apiVersion: v1
+        
 kind: Service
+
 metadata:
+
   name: reddit-clone-service
+  
   labels:
+  
     app: reddit-clone
 spec:
+
   type: NodePort
+  
   ports:
+  
   - port: 3000
+    
     targetPort: 3000
+    
     nodePort: 31000
+    
   selector:
+  
     app: reddit-clone
 
   ##  Expose the app
