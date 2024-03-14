@@ -1,4 +1,4 @@
-# Reddit Clone App on Kubernetes with Ingress
+# deployed Reddit Clone App on Kubernetes  
 This project demonstrates how to deploy a Reddit clone app on Kubernetes  and expose it to the world 
 
 ## Installation
@@ -66,8 +66,8 @@ https://github.com/NimishRathi/reddit-clone-deploy/blob/main/reddit-clone-k8s-in
   ##  Expose the app
 
 
-# you can also see the deployed application on Ec2_ip:3000
-# Make sure you open the 3000 port in a security group of your Ec2 Instance.
+ you can also see the deployed application on Ec2_ip:3000
+ Make sure you open the 3000 port in a security group of your Ec2 Instance.
 
 
 
