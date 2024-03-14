@@ -6,9 +6,10 @@ Follow these steps to install and run the Reddit clone app on your local machine
 
 1) Clone this repository to your local machine: `git clone
 2) https://github.com/NimishRathi/reddit-clone-deploy.git
-3) Navigate to the project directory: `cd reddit-clone-k8s-ingress`
-4) Build the Docker image for the Reddit clone app: `docker build -t reddit-clone-app .`
-5) Deploy the app to Kubernetes: `kubectl apply -f deployment.yaml`
+3) Navigate to the project directory: `cd reddit-clone-deploy
+4) Build the Docker image for the Reddit clone app: `docker build  .
+5) push it to the docker-hub
+6) Deploy the app to Kubernetes: `kubectl apply -f deployment.yaml`
 1) Deploy the Service for deployment to Kubernetes: `kubectl apply -f service.yaml`` or
 6) Expose the app as a Kubernetes service: `kubectl expose deployment reddit-deployment --type=NodePort --port=3000`
 
@@ -34,7 +35,7 @@ CMD ["npm","run","dev"]
 
 
 ## Step 3) Building Docker-Image
-cd reddit-clone-deploy 
+Navigate to the project directory: `cd reddit-clone-deploy
 Now it's time to build Docker Image from this Dockerfile. docker build .  
 use this command to build a docker image.
 
@@ -55,78 +56,13 @@ nimishrathi12/clone-of-redit
 
 
 ## Step 5) Write a Kubernetes Manifest File
-Write Deployment.yml file
 
-apiVersion: apps/v1
-
-kind: Deployment
-
-metadata:
-
-  name: reddit-clone-deployment
-  
-  labels:
-  
-    app: reddit-clone
-    
-spec:
-
-  replicas: 2
-  
-  selector:
-  
-    matchLabels:
-    
-      app: reddit-clone
-      
-  template:
-  
-    metadata:
-    
-      labels:
-      
-      app: reddit-clone
-      
-    spec:
-    
-      containers:
-      
-      - name: reddit-clone
-      
-        image: nimishrathi12/clone-of-redit
-        
-        ports:
-        
-        - containerPort: 3000
+https://github.com/NimishRathi/reddit-clone-deploy/blob/main/reddit-clone-k8s-ingress/deployment.yml
 
 ##        Write Service.yml file
-        apiVersion: v1
-        
-kind: Service
 
-metadata:
-
-  name: reddit-clone-service
-  
-  labels:
-  
-    app: reddit-clone
-spec:
-
-  type: NodePort
-  
-  ports:
-  
-  - port: 3000
-    
-    targetPort: 3000
-    
-    nodePort: 31000
-    
-  selector:
-  
-    app: reddit-clone
-
+ https://github.com/NimishRathi/reddit-clone-deploy/blob/main/reddit-clone-k8s-ingress/service.yml
+ 
   ##  Expose the app
 
 
