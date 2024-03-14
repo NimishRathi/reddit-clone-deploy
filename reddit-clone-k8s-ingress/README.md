@@ -44,11 +44,13 @@ Now push this Docker Image to DockerHub so our Deployment file can pull this ima
 
 # First login to your DockerHub account using Command i.e
 docker login 
+
 and give your username & password.
 
 # Tag the image  
 Then use 
 docker push<DockerHub_Usernam>/<tagged-Imagename>:actual-image-name for pushing to the DockerHub.
+
 You can use an existing docker image i.e  for deployment.
 nimishrathi12/clone-of-redit
 
