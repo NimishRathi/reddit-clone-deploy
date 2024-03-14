@@ -46,11 +46,9 @@ Now push this Docker Image to DockerHub so our Deployment file can pull this ima
 docker login 
 and give your username & password.
 
-# tag the image using command 
-docker tag<image-name><dockerhub-username>/<repo-name>:tag  
-
+# Tag the image  
 Then use 
-docker push<DockerHub_Usernam>/<tagged-Imagename>:<actual-image-name> for pushing to the DockerHub.
+docker push<DockerHub_Usernam>/<tagged-Imagename>:actual-image-name for pushing to the DockerHub.
 You can use an existing docker image i.e  for deployment.
 nimishrathi12/clone-of-redit
 
