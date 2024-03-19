@@ -9,7 +9,7 @@ Follow these steps to install and run the Reddit clone app on your local machine
 3) Navigate to the project directory: `cd reddit-clone-deploy
 4) Build the Docker image for the Reddit clone app: `docker build  .
 5) push it to the docker-hub
-6) Deploy the app to Kubernetes: `kubectl apply -f deployment.yaml`
+6) Deploy the app to Kubernetes: `kubectl apply -f deployment.yaml
 1) Deploy the Service for deployment to Kubernetes: `kubectl apply -f service.yaml`` or
 6) Expose the app as a Kubernetes service: `kubectl expose deployment reddit-deployment --type=NodePort --port=3000`
 
